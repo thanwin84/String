@@ -15,3 +15,26 @@ public:
     }
 };
 // time: O(n*2^n) cause we have 2^n recursion state and at each recursion we are creating new copy string of original array
+//iterative approach
+class Solution {
+public:
+    void print_all_subsequence(string str) {
+        vector<string> output;
+        for (auto i : str) {
+            vector<string> copy;
+            string temp = "";
+            copy.push_back(temp + i);
+            for (auto item: output) {
+                copy.push_back(item + i);
+            }
+            for (auto item : copy) {
+                output.push_back(item);
+            }
+        }
+        for (auto item : output) {
+            cout << item << " ";
+        }
+        
+    }
+};
+// same time complexity but we are using extra space here which O(n*2^n)
