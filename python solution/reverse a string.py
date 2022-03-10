@@ -1,7 +1,7 @@
-def reverse_a_string(str):
+def reverse_a_string(phrase):
     reversed_str = ""
-    for char in reversed(range(len(str) -1)):
-        reversed_str += str[char]
+    for char in reversed(range(len(phrase) - 1)):
+        reversed_str += phrase[char]
     return reversed_str
 
 
