@@ -1,3 +1,4 @@
+# using arrays
 class FindDuplicates:
     def __init__(self):
         self.arr = [0] * 256
@@ -13,7 +14,8 @@ class FindDuplicates:
 s = "abaaccd"
 obj = FindDuplicates()
 obj.find_duplicates(s)
-# time complexity: O(n) and space: O(256)
+# time complexity: O(n) and space: O(1)
+# we can also argu that time complexity is O(1) since it will never iterate more than 256
 from collections import defaultdict
 class FindDuplicates:
     def find_duplicates(self, s):
