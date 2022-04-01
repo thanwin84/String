@@ -37,12 +37,12 @@ class Solution:
 		dp = [0 for i in range(len(nums) + 1)]
 		lastIndex = len(nums) - 1
         
-        for pos in range(len(nums)-1, -1, -1):
+        for start in range(len(nums)-1, -1, -1):
             _sum = 0
             ans = float('inf')
-            for currentIndex in range(pos, len(nums)):
+            for currentIndex in range(start, len(nums)):
                 _sum += nums[currentIndex]
-                widthCovered = _sum + currentIndex - pos
+                widthCovered = _sum + currentIndex - start
                 if widthCovered <= k:
                     if currentIndex == lastIndex:
                         ans = 0
