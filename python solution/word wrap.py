@@ -29,3 +29,29 @@ def solve(self, nums, k, pos, dp):
         # Code here
         dp = [-1 for i in range(len(nums) + 1)]
         return self.solve(nums, k, 0, dp)
+  
+# iterative approach
+class Solution:
+	def solveWordWrap(self, nums, k):
+		#Code here
+		dp = [0 for i in range(len(nums) + 1)]
+		lastIndex = len(nums) - 1
+        
+        for pos in range(len(nums)-1, -1, -1):
+            _sum = 0
+            ans = float('inf')
+            for currentIndex in range(pos, len(nums)):
+                _sum += nums[currentIndex]
+                widthCovered = _sum + currentIndex - pos
+                if widthCovered <= k:
+                    if currentIndex == lastIndex:
+                        ans = 0
+                        break
+                    extraSpaces = k - widthCovered
+                    right = dp[currentIndex + 1]
+                    ans = min(extraSpaces ** 2 + right, ans)
+                else:
+                    break
+            dp[pos] = ans
+        return dp[0]
+    # time taken: 3hours
