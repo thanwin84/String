@@ -1,16 +1,19 @@
 # time: O(n^2) and space: O(n) 
 def solve(self, nums, k, pos, dp):
     lastIndex = len(nums) - 1
-    # we cannot have extra space at the last line
+    # we cannot have extra space after last word in the last line
     if pos == lastIndex:
         return 0
     ans = float('inf')
     _sum = 0
     if dp[pos] != -1:
         return dp[pos]
+    # checking how many words we can put at max in a line
+    # spaces between words are not considered as extra space
     for currentIndex in range(pos, len(nums)):
         _sum += nums[currentIndex]
         widthCovered = _sum + currentIndex - pos
+	# checking if words  can be put in the same line
         if widthCovered <= k:
             if currentIndex == lastIndex:
                 ans = 0
@@ -31,6 +34,7 @@ def solve(self, nums, k, pos, dp):
         return self.solve(nums, k, 0, dp)
   
 # iterative approach
+# just copy paste the recursive approach
 class Solution:
 	def solveWordWrap(self, nums, k):
 		#Code here
