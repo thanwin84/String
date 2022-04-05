@@ -15,5 +15,7 @@ class Solution:
 		        if prev == 0:
 		            fast += 1
 		        else:
+			 # we want the longest ps
+			# by doing this, it may help to build longest lps again with the unmatching character
 		            prev = result[prev -1]
 		return result[-1]
